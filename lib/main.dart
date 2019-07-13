@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
 import 'dart:ui';
 import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
-import 'package:pizza_app/models/pizza.dart';
+import 'package:pizza_app/models/food.dart';
 import 'package:pizza_app/details.dart';
+import 'dart:convert';
+
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+
+    debugPrint("Food Detail: ${jsonEncode(pizzaList)}");
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Pizza App",
@@ -22,7 +28,6 @@ class PizzaHome extends StatelessWidget {
   Widget build(BuildContext context) {
     FlutterStatusbarcolor.setStatusBarColor(Colors.grey);
     return Scaffold(
-
       body: MainApp(),
       bottomNavigationBar: BottomBar(),
     );
@@ -39,7 +44,6 @@ class MainApp extends StatelessWidget {
       child: ListView(
         children: <Widget>[
           Column(
-
             children: <Widget>[
               titleBar(),
               tabs(),
@@ -79,7 +83,6 @@ class MainApp extends StatelessWidget {
         child: Scaffold(
           backgroundColor: Colors.transparent,
           appBar: AppBar(
-
             backgroundColor: Colors.transparent,
             elevation: 0,
             centerTitle: false,
@@ -158,15 +161,15 @@ class MainApp extends StatelessWidget {
       padding: EdgeInsets.symmetric(vertical: 30),
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        itemCount: pizzaList.pizzas.length,
+        itemCount: pizzaList.foods.length,
         itemBuilder: (BuildContext context, int index) {
           return ListOfPizzas(
-            name: pizzaList.pizzas[index].name,
-            image: pizzaList.pizzas[index].image,
-            price: pizzaList.pizzas[index].price,
-            background: pizzaList.pizzas[index].background,
-            foreground: pizzaList.pizzas[index].foreground,
-            pizzaObject: pizzaList.pizzas[index],
+            name: pizzaList.foods[index].name,
+            image: pizzaList.foods[index].image,
+            price: pizzaList.foods[index].price,
+            background: Color(pizzaList.foods[index].background),
+            foreground: Color(pizzaList.foods[index].foreground),
+            pizzaObject: pizzaList.foods[index],
           );
         },
       ),
@@ -180,7 +183,7 @@ class ListOfPizzas extends StatelessWidget {
   final double price;
   final String name;
   final String image;
-  final Pizza pizzaObject;
+  final Food pizzaObject;
 
   ListOfPizzas(
       {this.foreground,
@@ -273,7 +276,6 @@ class _StatefulFavIconState extends State<StatefulFavIcon> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     isFav = false;
   }
@@ -286,7 +288,6 @@ class _StatefulFavIconState extends State<StatefulFavIcon> {
           isFav = !isFav;
         });
       },
-
       child: Icon(
         isFav ? Icons.favorite : Icons.favorite_border,
         color: widget.foreground,
@@ -312,7 +313,10 @@ class BottomBar extends StatelessWidget {
             width: _size + 15,
             padding: EdgeInsets.all(_padding),
             decoration: BoxDecoration(borderRadius: BorderRadius.circular(50)),
-            child: Icon(Icons.control_point,size: 30,),
+            child: Icon(
+              Icons.control_point,
+              size: 30,
+            ),
           ),
           Container(
             height: _size,

@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
-import 'package:pizza_app/models/pizza.dart';
+import 'package:pizza_app/models/food.dart';
 import 'dart:ui';
 
 class Details extends StatelessWidget {
   Details(this.pizzaObject);
 
-  final Pizza pizzaObject;
+  final Food pizzaObject;
 
   @override
   Widget build(BuildContext context) {
-    FlutterStatusbarcolor.setStatusBarColor(pizzaObject.background);
+    FlutterStatusbarcolor.setStatusBarColor(Color(pizzaObject.background));
     return Scaffold(
       body: Center(
         child: ListView(
           children: <Widget>[
             Stack(
               children: <Widget>[
-                BackgroundArc(pizzaObject.background),
+                BackgroundArc(Color(pizzaObject.background)),
                 ForegroundContent(pizzaObject: pizzaObject)
               ],
             )
@@ -31,7 +31,7 @@ class Details extends StatelessWidget {
 class ForegroundContent extends StatelessWidget {
   const ForegroundContent({this.pizzaObject});
 
-  final Pizza pizzaObject;
+  final Food pizzaObject;
 
   @override
   Widget build(BuildContext context) {
@@ -63,13 +63,13 @@ class ForegroundContent extends StatelessWidget {
             children: <Widget>[
               TitleText(pizzaObject.name),
               SizedBox(height: 25),
-              StarRating(pizzaObject.starRating, color:pizzaObject.background),
+              StarRating(pizzaObject.starRating, color:Color(pizzaObject.background)),
               SizedBox(height: 15),
               Description(pizzaObject.desc),
               SizedBox(height: 15),
               Price(pizzaObject.price),
               SizedBox(height: 30),
-              BottomButtons(pizzaObject.background),
+              BottomButtons(Color(pizzaObject.background)),
               SizedBox(
                 height: 35,
               ),
