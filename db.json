@@ -75,7 +75,7 @@
       "image": "https://raw.githubusercontent.com/payam-zahedi/Flutter-Pizza-sample/master/assets/images/Rolls/egg-rolls.png",
       "background": 4284294418,
       "foreground": 4294967295,
-      "name": "England Egg Rolls",
+      "name": "England Egg",
       "starRating": 4.5,
       "desc": "Mozzarella Cheeze, Buffalo blue sauce, and your choice of grilled chicken or crispy chicken fingers",
       "price": 9.99,
@@ -85,7 +85,7 @@
       "image": "https://raw.githubusercontent.com/payam-zahedi/Flutter-Pizza-sample/master/assets/images/Rolls/veg-rolls.png",
       "background": 4283417632,
       "foreground": 4278190080,
-      "name": "Vegetarian Rolls",
+      "name": "Vegetarian ",
       "starRating": 4.5,
       "desc": "Mozzarella Cheeze, Buffalo blue sauce, and your choice of grilled chicken or crispy chicken fingers",
       "price": 10.99,
@@ -95,7 +95,7 @@
       "image": "https://raw.githubusercontent.com/payam-zahedi/Flutter-Pizza-sample/master/assets/images/Rolls/iranian-rolls.png",
       "background": 4294101632,
       "foreground": 4278190080,
-      "name": "Iranian Rolls",
+      "name": "Iranian ",
       "starRating": 3.5,
       "desc": "Mozzarella Cheeze, Buffalo blue sauce, and your choice of grilled chicken or crispy chicken fingers",
       "price": 13,
@@ -105,62 +105,62 @@
       "image": "https://raw.githubusercontent.com/payam-zahedi/Flutter-Pizza-sample/master/assets/images/Rolls/hamburger.png",
       "background": 4283417632,
       "foreground": 4278190080,
-      "name": "Hamburger",
+      "name": "Goargian ",
       "starRating": 4.5,
       "desc": "Mozzarella Cheeze, Buffalo blue sauce, and your choice of grilled chicken or crispy chicken fingers",
       "price": 10.99,
-      "foodType": "Burgers"
+      "foodType": "Burger"
     },
     {
       "image": "https://raw.githubusercontent.com/payam-zahedi/Flutter-Pizza-sample/master/assets/images/Burgers/chicken-burger.png",
       "background": 4294101632,
       "foreground": 4278190080,
-      "name": "Chicken Burger",
+      "name": "Chicken",
       "starRating": 3.5,
       "desc": "Mozzarella Cheeze, Buffalo blue sauce, and your choice of grilled chicken or crispy chicken fingers",
       "price": 13,
-      "foodType": "Burgers"
+      "foodType": "Burger"
     },
     {
       "image": "https://raw.githubusercontent.com/payam-zahedi/Flutter-Pizza-sample/master/assets/images/Rolls/double-burger.png",
       "background": 4292356626,
       "foreground": 4294967295,
-      "name": "Double Burger",
+      "name": "Double ",
       "starRating": 4.5,
       "desc": "Mozzarella Cheeze, Buffalo blue sauce, and your choice of grilled chicken or crispy chicken fingers",
       "price": 12.99,
-      "foodType": "Burgers"
+      "foodType": "Burger"
     },
     {
       "image": "https://raw.githubusercontent.com/payam-zahedi/Flutter-Pizza-sample/master/assets/images/Rolls/mac-burger.png",
       "background": 4284294418,
       "foreground": 4294967295,
-      "name": "McDonalts",
+      "name": "McDonalts ",
       "starRating": 4.5,
       "desc": "Mozzarella Cheeze, Buffalo blue sauce, and your choice of grilled chicken or crispy chicken fingers",
       "price": 9.99,
-      "foodType": "Burgers"
+      "foodType": "Burger"
     },
     {
       "image": "https://raw.githubusercontent.com/payam-zahedi/Flutter-Pizza-sample/master/assets/images/Rolls/mix-burger.png",
       "background": 4292729816,
       "foreground": 4278190080,
-      "name": "Super Mix Burger",
+      "name": "Super Mix",
       "starRating": 4.5,
       "desc": "Mozzarella Cheeze, Buffalo blue sauce, and your choice of grilled chicken or crispy chicken fingers",
       "price": 12.99,
-      "foodType": "Burgers"
+      "foodType": "Burger"
     },
 
     {
       "image": "https://raw.githubusercontent.com/payam-zahedi/Flutter-Pizza-sample/master/assets/images/Sandwiches/Sausage-Sandwich-PNG-File.png",
       "background": 4294101632,
       "foreground": 4278190080,
-      "name": "Iranian Sausages Sandwich",
+      "name": "Iranian Sausages ",
       "starRating": 4.5,
       "desc": "Mozzarella Cheeze, Buffalo blue sauce, and your choice of grilled chicken or crispy chicken fingers",
       "price": 13,
-      "foodType": "Sandwiches"
+      "foodType": "Sandwiche"
     },
     {
       "image": "https://raw.githubusercontent.com/payam-zahedi/Flutter-Pizza-sample/master/assets/images/Sandwiches/Sausage-Sandwich-PNG-Image.png",
@@ -170,7 +170,7 @@
       "starRating": 4.5,
       "desc": "Mozzarella Cheeze, Buffalo blue sauce, and your choice of grilled chicken or crispy chicken fingers",
       "price": 11.99,
-      "foodType": "Sandwiches"
+      "foodType": "Sandwiche"
     },
     {
       "image": "https://raw.githubusercontent.com/payam-zahedi/Flutter-Pizza-sample/master/assets/images/Sandwiches/Sausage-Sandwich-PNG-Transparent-Image.png",
@@ -180,17 +180,17 @@
       "starRating": 4.5,
       "desc": "Mozzarella Cheeze, Buffalo blue sauce, and your choice of grilled chicken or crispy chicken fingers",
       "price": 8.99,
-      "foodType": "Sandwiches"
+      "foodType": "Sandwiche"
     },
     {
       "image": "https://raw.githubusercontent.com/payam-zahedi/Flutter-Pizza-sample/master/assets/images/Sandwiches/Sausage-Sandwich.png",
       "background": 4284294418,
       "foreground": 4294967295,
-      "name": "Meat sandwich",
+      "name": "Meat ",
       "starRating": 4.5,
       "desc": "Mozzarella Cheeze, Buffalo blue sauce, and your choice of grilled chicken or crispy chicken fingers",
       "price": 10.00,
-      "foodType": "Sandwiches"
+      "foodType": "Sandwiche"
     }
   ]
 }
