@@ -159,28 +159,10 @@ class _FutureTabState extends State<FutureTab> {
           ),
           body: TabBarView(
             children: <Widget>[
-              foodShowCase(foodList.foods),
-              Center(
-                child: Text(
-                  "Rolls Tab",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 15),
-                ),
-              ),
-              Center(
-                child: Text(
-                  "Burgers Tab",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 15),
-                ),
-              ),
-              Center(
-                child: Text(
-                  "Sandwiches Tab",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 15),
-                ),
-              ),
+              foodShowCase(foodList.foods, FoodType.Pizza),
+              foodShowCase(foodList.foods, FoodType.Rolls),
+              foodShowCase(foodList.foods, FoodType.Burgers),
+              foodShowCase(foodList.foods, FoodType.Sandwiches),
             ],
           ),
         ),
@@ -188,24 +170,38 @@ class _FutureTabState extends State<FutureTab> {
     );
   }
 
-  Widget foodShowCase(List<Food> foods) {
-    return Padding(
-      padding: EdgeInsets.symmetric(vertical: 30),
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        itemCount: pizzaList.foods.length,
-        itemBuilder: (BuildContext context, int index) {
-          return ListOfFoods(
-            name: foods[index].name,
-            image: foods[index].image,
-            price: foods[index].price,
-            background: Color(foods[index].background),
-            foreground: Color(foods[index].foreground),
-            foodObject: foods[index],
-          );
-        },
-      ),
-    );
+  Widget foodShowCase(List<Food> foods, FoodType foodType) {
+
+    List<Food> filteredFood =
+        foods.where((food) => food.foodType == foodType).toList();
+
+    if (filteredFood.length <= 0) {
+      return Center(
+        child: Text(
+          "Data Not Found",
+          textAlign: TextAlign.center,
+          style: TextStyle(fontSize: 15),
+        ),
+      );
+    } else {
+      return Padding(
+        padding: EdgeInsets.symmetric(vertical: 30),
+        child: ListView.builder(
+          scrollDirection: Axis.horizontal,
+          itemCount: filteredFood.length,
+          itemBuilder: (BuildContext context, int index) {
+            return ListOfFoods(
+              name: filteredFood[index].name,
+              image: filteredFood[index].image,
+              price: filteredFood[index].price,
+              background: Color(filteredFood[index].background),
+              foreground: Color(filteredFood[index].foreground),
+              foodObject: filteredFood[index],
+            );
+          },
+        ),
+      );
+    }
   }
 
   Widget errorWidget(Object error) {
@@ -233,7 +229,7 @@ class _FutureTabState extends State<FutureTab> {
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             Text(
-              "Error Has been Detected : $error",
+              error.toString(),
               style: TextStyle(
                 fontFamily: "arial",
                 fontSize: 18,
