@@ -1,29 +1,12 @@
-import 'package:flutter/material.dart';
 import 'dart:ui';
 import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 import 'package:pizza_app/models/food.dart';
-import 'package:pizza_app/details.dart';
-import 'dart:convert';
+import 'package:pizza_app/view/details.dart';
+import 'package:flutter/material.dart';
+import 'package:pizza_app/api/service.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
-
-void main() => runApp(MyApp());
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-
-    debugPrint("Food Detail: ${jsonEncode(pizzaList)}");
-
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: "Pizza App",
-      home: PizzaHome(),
-      theme: ThemeData(primarySwatch: Colors.blueGrey, fontFamily: "slabo"),
-    );
-  }
-}
-
-class PizzaHome extends StatelessWidget {
+class FoodHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     FlutterStatusbarcolor.setStatusBarColor(Colors.grey);
@@ -46,7 +29,7 @@ class MainApp extends StatelessWidget {
           Column(
             children: <Widget>[
               titleBar(),
-              tabs(),
+              FutureTab(),
             ],
           )
         ],
@@ -74,8 +57,57 @@ class MainApp extends StatelessWidget {
       ],
     );
   }
+}
 
-  Widget tabs() {
+class FutureTab extends StatefulWidget {
+  @override
+  _FutureTabState createState() => _FutureTabState();
+}
+
+class _FutureTabState extends State<FutureTab> {
+  FoodList foodList;
+
+  @override
+  void initState() {
+    foodList = null;
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return futureTabs();
+  }
+
+  Widget futureTabs() {
+    return Container(
+      constraints: BoxConstraints.expand(height: 580),
+      child: FutureBuilder<FoodList>(
+        future: Service.fetchData(),
+        builder: (context, snapshot) {
+          if (foodList == null) {
+            if (snapshot.connectionState == ConnectionState.done) {
+              if (snapshot.hasData) {
+                foodList = snapshot.data;
+                return tabs(foodList);
+              } else {
+                return errorWidget(snapshot.error.toString());
+              }
+            } else if (snapshot.connectionState == ConnectionState.waiting) {
+              return Center(child: CircularProgressIndicator());
+            } else {
+              return errorWidget("some thing Wrong");
+            }
+          } else {
+            return tabs(foodList);
+          }
+
+          // By default, show a loading spinner.
+        },
+      ),
+    );
+  }
+
+  Widget tabs(FoodList foodList) {
     return Container(
       constraints: BoxConstraints.expand(height: 580),
       child: DefaultTabController(
@@ -127,7 +159,7 @@ class MainApp extends StatelessWidget {
           ),
           body: TabBarView(
             children: <Widget>[
-              pizzaShowCase(),
+              foodShowCase(foodList.foods),
               Center(
                 child: Text(
                   "Rolls Tab",
@@ -156,42 +188,98 @@ class MainApp extends StatelessWidget {
     );
   }
 
-  Widget pizzaShowCase() {
+  Widget foodShowCase(List<Food> foods) {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 30),
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: pizzaList.foods.length,
         itemBuilder: (BuildContext context, int index) {
-          return ListOfPizzas(
-            name: pizzaList.foods[index].name,
-            image: pizzaList.foods[index].image,
-            price: pizzaList.foods[index].price,
-            background: Color(pizzaList.foods[index].background),
-            foreground: Color(pizzaList.foods[index].foreground),
-            pizzaObject: pizzaList.foods[index],
+          return ListOfFoods(
+            name: foods[index].name,
+            image: foods[index].image,
+            price: foods[index].price,
+            background: Color(foods[index].background),
+            foreground: Color(foods[index].foreground),
+            foodObject: foods[index],
           );
         },
       ),
     );
   }
+
+  Widget errorWidget(Object error) {
+    return Center(
+      child: Container(
+        margin: EdgeInsets.all(8),
+        decoration: BoxDecoration(
+          color: Colors.grey,
+          borderRadius: BorderRadius.circular(4),
+          border: Border.all(color: Colors.red, width: 1),
+          boxShadow: <BoxShadow>[
+            BoxShadow(
+              color: Colors.grey,
+              blurRadius: 10, // has the effect of softening the shadow
+              offset: Offset(
+                0, // horizontal, move right 10
+                8.0, // vertical, move down 10
+              ),
+            ),
+          ],
+        ),
+        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 32),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            Text(
+              "Error Has been Detected : $error",
+              style: TextStyle(
+                fontFamily: "arial",
+                fontSize: 18,
+                color: Colors.black87,
+              ),
+              textAlign: TextAlign.center,
+            ),
+            SizedBox(
+              height: 15,
+            ),
+            RaisedButton(
+              padding: EdgeInsets.symmetric(vertical: 8, horizontal: 24),
+              child: Text(
+                "Try Again",
+                style: TextStyle(fontSize: 18),
+              ),
+              color: Colors.red,
+              textColor: Colors.white,
+              onPressed: () {
+                setState(() {
+                  //
+                });
+              },
+            )
+          ],
+        ),
+      ),
+    );
+  }
 }
 
-class ListOfPizzas extends StatelessWidget {
+class ListOfFoods extends StatelessWidget {
   final Color foreground;
   final Color background;
   final double price;
   final String name;
   final String image;
-  final Food pizzaObject;
+  final Food foodObject;
 
-  ListOfPizzas(
+  ListOfFoods(
       {this.foreground,
       this.background,
       this.price,
       this.name,
       this.image,
-      this.pizzaObject});
+      this.foodObject});
 
   @override
   Widget build(BuildContext context) {
@@ -200,7 +288,7 @@ class ListOfPizzas extends StatelessWidget {
       child: GestureDetector(
         onTap: () {
           Navigator.push(context,
-              MaterialPageRoute(builder: (context) => Details(pizzaObject)));
+              MaterialPageRoute(builder: (context) => Details(foodObject)));
         },
         child: Container(
           padding: EdgeInsets.symmetric(vertical: 35, horizontal: 20),
@@ -214,7 +302,16 @@ class ListOfPizzas extends StatelessWidget {
             children: <Widget>[
               SizedBox(
                 height: 180,
-                child: Image.asset(image),
+                child: CachedNetworkImage(
+                  imageUrl: image,
+                  fit: BoxFit.cover,
+                  placeholder: (context, url) => Center(
+                        child: CircularProgressIndicator(),
+                      ),
+                  errorWidget: (context, url, error) => Center(
+                        child: Icon(Icons.perm_scan_wifi, size: 48),
+                      ),
+                ),
               ),
               SizedBox(
                 height: 30,
@@ -227,7 +324,7 @@ class ListOfPizzas extends StatelessWidget {
                   children: [
                     TextSpan(text: name),
                     TextSpan(
-                      text: "\nPizza",
+                      text: "\ ${foodObject.foodType.toString()}",
                       style: TextStyle(fontWeight: FontWeight.w800),
                     ),
                   ],
@@ -314,7 +411,7 @@ class BottomBar extends StatelessWidget {
             padding: EdgeInsets.all(_padding),
             decoration: BoxDecoration(borderRadius: BorderRadius.circular(50)),
             child: Icon(
-              Icons.control_point,
+              Icons.settings,
               size: 30,
             ),
           ),

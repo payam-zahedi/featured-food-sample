@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 import 'package:pizza_app/models/food.dart';
 import 'dart:ui';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class Details extends StatelessWidget {
   Details(this.pizzaObject);
@@ -63,7 +64,8 @@ class ForegroundContent extends StatelessWidget {
             children: <Widget>[
               TitleText(pizzaObject.name),
               SizedBox(height: 25),
-              StarRating(pizzaObject.starRating, color:Color(pizzaObject.background)),
+              StarRating(pizzaObject.starRating,
+                  color: Color(pizzaObject.background)),
               SizedBox(height: 15),
               Description(pizzaObject.desc),
               SizedBox(height: 15),
@@ -91,7 +93,16 @@ class PizzaImage extends StatelessWidget {
     return Container(
       width: 300,
       height: 300,
-      child: Image.asset(pizzaImage),
+      child: CachedNetworkImage(
+        imageUrl: pizzaImage,
+        fit: BoxFit.cover,
+        placeholder: (context, url) => Center(
+              child: CircularProgressIndicator(),
+            ),
+        errorWidget: (context, url, error) => Center(
+              child: Icon(Icons.perm_scan_wifi, size: 48),
+            ),
+      ),
     );
   }
 }
@@ -131,7 +142,7 @@ class StarRating extends StatelessWidget {
   final double rating;
   final Color color;
 
-  StarRating(this.rating,{this.color});
+  StarRating(this.rating, {this.color});
 
   @override
   Widget build(BuildContext context) {
@@ -183,7 +194,6 @@ class Price extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Align(
-
       alignment: Alignment.centerRight,
       child: Padding(
         padding: const EdgeInsets.only(right: 10),
@@ -198,9 +208,7 @@ class Price extends StatelessWidget {
 }
 
 class BottomButtons extends StatefulWidget {
-
   final Color _color;
-
 
   BottomButtons(this._color);
 
@@ -213,7 +221,6 @@ class _BottomButtonsState extends State<BottomButtons> {
   bool isCart = false;
 
   final Color color;
-
 
   _BottomButtonsState(this.color);
 

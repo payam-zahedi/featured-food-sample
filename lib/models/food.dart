@@ -3,6 +3,9 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'food.g.dart';
 
+
+
+
 @JsonSerializable(nullable: false)
 class FoodList {
   final List<Food> foods;
