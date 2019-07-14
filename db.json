@@ -160,7 +160,7 @@
       "starRating": 4.5,
       "desc": "Mozzarella Cheeze, Buffalo blue sauce, and your choice of grilled chicken or crispy chicken fingers",
       "price": 13,
-      "foodType": "Sandwiche"
+      "foodType": "Sandwich"
     },
     {
       "image": "https://raw.githubusercontent.com/payam-zahedi/Flutter-Pizza-sample/master/assets/images/Sandwiches/Sausage-Sandwich-PNG-Image.png",
@@ -170,7 +170,7 @@
       "starRating": 4.5,
       "desc": "Mozzarella Cheeze, Buffalo blue sauce, and your choice of grilled chicken or crispy chicken fingers",
       "price": 11.99,
-      "foodType": "Sandwiche"
+      "foodType": "Sandwich"
     },
     {
       "image": "https://raw.githubusercontent.com/payam-zahedi/Flutter-Pizza-sample/master/assets/images/Sandwiches/Sausage-Sandwich-PNG-Transparent-Image.png",
@@ -180,7 +180,7 @@
       "starRating": 4.5,
       "desc": "Mozzarella Cheeze, Buffalo blue sauce, and your choice of grilled chicken or crispy chicken fingers",
       "price": 8.99,
-      "foodType": "Sandwiche"
+      "foodType": "Sandwich"
     },
     {
       "image": "https://raw.githubusercontent.com/payam-zahedi/Flutter-Pizza-sample/master/assets/images/Sandwiches/Sausage-Sandwich.png",
@@ -190,7 +190,7 @@
       "starRating": 4.5,
       "desc": "Mozzarella Cheeze, Buffalo blue sauce, and your choice of grilled chicken or crispy chicken fingers",
       "price": 10.00,
-      "foodType": "Sandwiche"
+      "foodType": "Sandwich"
     }
   ]
 }
