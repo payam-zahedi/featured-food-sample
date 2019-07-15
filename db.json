@@ -142,7 +142,7 @@
       "foodType": "Burger"
     },
     {
-      "image": "https://raw.githubusercontent.com/payam-zahedi/Flutter-Pizza-sample/master/assets/images/Rolls/mix-burger.png",
+      "image": "https://raw.githubusercontent.com/payam-zahedi/Flutter-Pizza-sample/master/assets/images/Burgers/mix-burger.png",
       "background": 4292729816,
       "foreground": 4278190080,
       "name": "Super Mix",
