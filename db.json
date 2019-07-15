@@ -63,8 +63,8 @@
 
     {
       "image": "https://raw.githubusercontent.com/payam-zahedi/Flutter-Pizza-sample/master/assets/images/Rolls/jambon-rolls.png",
-      "background": 4292356626,
-      "foreground": 4294967295,
+      "background": 4292168476,
+      "foreground": 4278190080,
       "name": "Chicken Ham Rolls ",
       "starRating": 4.5,
       "desc": "Mozzarella Cheeze, Buffalo blue sauce, and your choice of grilled chicken or crispy chicken fingers",
@@ -93,8 +93,8 @@
     },
     {
       "image": "https://raw.githubusercontent.com/payam-zahedi/Flutter-Pizza-sample/master/assets/images/Rolls/iranian-rolls.png",
-      "background": 4284294418,
-      "foreground": 4294967295,
+      "background": 4292729816,
+      "foreground": 4278190080,
       "name": "Iranian ",
       "starRating": 3.5,
       "desc": "Mozzarella Cheeze, Buffalo blue sauce, and your choice of grilled chicken or crispy chicken fingers",
@@ -174,8 +174,8 @@
     },
     {
       "image": "https://raw.githubusercontent.com/payam-zahedi/Flutter-Pizza-sample/master/assets/images/Sandwiches/Sausage-Sandwich-PNG-Transparent-Image.png",
-      "background": 4292356626,
-      "foreground": 4294967295,
+      "background": 4292729816,
+      "foreground": 4278190080,
       "name": "Beef Sausage",
       "starRating": 4.5,
       "desc": "Mozzarella Cheeze, Buffalo blue sauce, and your choice of grilled chicken or crispy chicken fingers",
