@@ -73,8 +73,8 @@
     },
     {
       "image": "https://raw.githubusercontent.com/payam-zahedi/Flutter-Pizza-sample/master/assets/images/Rolls/egg-rolls.png",
-      "background": 4284294418,
-      "foreground": 4294967295,
+      "background": 4283417632,
+      "foreground": 4278190080,
       "name": "England Egg",
       "starRating": 4.5,
       "desc": "Mozzarella Cheeze, Buffalo blue sauce, and your choice of grilled chicken or crispy chicken fingers",
@@ -83,7 +83,7 @@
     },
     {
       "image": "https://raw.githubusercontent.com/payam-zahedi/Flutter-Pizza-sample/master/assets/images/Rolls/veg-rolls.png",
-      "background": 4283417632,
+      "background": 4294101632,
       "foreground": 4278190080,
       "name": "Vegetarian ",
       "starRating": 4.5,
@@ -93,8 +93,8 @@
     },
     {
       "image": "https://raw.githubusercontent.com/payam-zahedi/Flutter-Pizza-sample/master/assets/images/Rolls/iranian-rolls.png",
-      "background": 4294101632,
-      "foreground": 4278190080,
+      "background": 4284294418,
+      "foreground": 4294967295,
       "name": "Iranian ",
       "starRating": 3.5,
       "desc": "Mozzarella Cheeze, Buffalo blue sauce, and your choice of grilled chicken or crispy chicken fingers",
@@ -102,7 +102,7 @@
       "foodType": "Rolls"
     },
     {
-      "image": "https://raw.githubusercontent.com/payam-zahedi/Flutter-Pizza-sample/master/assets/images/Rolls/hamburger.png",
+      "image": "https://raw.githubusercontent.com/payam-zahedi/Flutter-Pizza-sample/master/assets/images/Burgers/hamburger.png",
       "background": 4283417632,
       "foreground": 4278190080,
       "name": "Goargian ",
@@ -122,7 +122,7 @@
       "foodType": "Burger"
     },
     {
-      "image": "https://raw.githubusercontent.com/payam-zahedi/Flutter-Pizza-sample/master/assets/images/Rolls/double-burger.png",
+      "image": "https://raw.githubusercontent.com/payam-zahedi/Flutter-Pizza-sample/master/assets/images/Burgers/double-burger.png",
       "background": 4292356626,
       "foreground": 4294967295,
       "name": "Double ",
@@ -132,7 +132,7 @@
       "foodType": "Burger"
     },
     {
-      "image": "https://raw.githubusercontent.com/payam-zahedi/Flutter-Pizza-sample/master/assets/images/Rolls/mac-burger.png",
+      "image": "https://raw.githubusercontent.com/payam-zahedi/Flutter-Pizza-sample/master/assets/images/Burgers/mac-burger.png",
       "background": 4284294418,
       "foreground": 4294967295,
       "name": "McDonalts ",
@@ -164,8 +164,8 @@
     },
     {
       "image": "https://raw.githubusercontent.com/payam-zahedi/Flutter-Pizza-sample/master/assets/images/Sandwiches/Sausage-Sandwich-PNG-Image.png",
-      "background": 4292356626,
-      "foreground": 4294967295,
+      "background": 4283417632,
+      "foreground": 4278190080,
       "name": "HotDog",
       "starRating": 4.5,
       "desc": "Mozzarella Cheeze, Buffalo blue sauce, and your choice of grilled chicken or crispy chicken fingers",
@@ -174,8 +174,8 @@
     },
     {
       "image": "https://raw.githubusercontent.com/payam-zahedi/Flutter-Pizza-sample/master/assets/images/Sandwiches/Sausage-Sandwich-PNG-Transparent-Image.png",
-      "background": 4283417632,
-      "foreground": 4278190080,
+      "background": 4292356626,
+      "foreground": 4294967295,
       "name": "Beef Sausage",
       "starRating": 4.5,
       "desc": "Mozzarella Cheeze, Buffalo blue sauce, and your choice of grilled chicken or crispy chicken fingers",
