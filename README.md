@@ -19,8 +19,6 @@ The UI completely Created by @Ronak99 thanks to him. And I just changed some par
 
 <img src="https://raw.githubusercontent.com/payam-zahedi/featured-food-sample/master/assets/ss/photo5868283588724764827.jpg" align="left" width="20%" >
 
-<img src="https://raw.githubusercontent.com/payam-zahedi/featured-food-sample/master/assets/ss/photo5868283588724764826.jpg" align="left" width="20%" >
-
 <img src="https://raw.githubusercontent.com/payam-zahedi/featured-food-sample/master/assets/ss/photo5868283588724764831.jpg" align="left" width="20%" >
 
 <img src="https://raw.githubusercontent.com/payam-zahedi/featured-food-sample/master/assets/ss/photo5868283588724764829.jpg" align="left" width="20%" >
