@@ -3,9 +3,11 @@ import 'dart:convert';
 import 'package:pizza_app/models/food.dart';
 
 class Service {
+
   static String _url =
       "https://my-json-server.typicode.com/payam-zahedi/Flutter-Pizza-sample";
 
+  ///create singleton object of Dio class
   static Dio _dio;
 
   static Dio getInstance() {
@@ -24,11 +26,10 @@ class Service {
     try {
       Response response = await getInstance().get("/db");
 
-      _checkResponse(response);
+      _logResult(response);
 
       if (response.statusCode == 200) {
         // If server returns an OK response, parse the JSON.
-
         var jsonString = json.encode(response.data);
         Map userMap = jsonDecode(jsonString);
         return FoodList.fromJson(userMap);
@@ -44,7 +45,8 @@ class Service {
   }
 
 
-  static _checkResponse(Response response){
+
+  static _logResult(Response response){
 
     print("checkResponse:");
     print("statusCode: ${response.statusCode}");
@@ -55,11 +57,9 @@ class Service {
 
   }
 
-  static String _checkError(DioError error){
 
-    String errorDetail;
-
-    print("checkError:");
+  static _logError(DioError error){
+    print("logError:");
     if(error.response!=null){
       print("statusCode: ${error.response.statusCode}");
       print("statusMessage: ${error.response.statusMessage}");
@@ -70,8 +70,15 @@ class Service {
     print("errorType: ${error.type}");
     print("errorMessage: ${error.message}");
     print("errorData: ${error.error}");
-    print("checkError Completed.....................");
+    print("logError Completed.....................");
+  }
 
+
+  static String _checkError(DioError error){
+
+    _logError(error);
+
+    String errorDetail;
     switch(error.type){
       case DioErrorType.CONNECT_TIMEOUT:
         errorDetail = "request Time Out Check The Network and";
@@ -96,5 +103,6 @@ class Service {
     return errorDetail;
 
   }
+
 }
 

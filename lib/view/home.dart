@@ -23,7 +23,7 @@ class MainApp extends StatelessWidget {
     return Container(
       color: Colors.white,
       width: double.infinity,
-      padding: EdgeInsets.only(left: 50, right: 30),
+      padding: EdgeInsets.only(left: 50),
       child: ListView(
         children: <Widget>[
           Column(
@@ -161,8 +161,8 @@ class _FutureTabState extends State<FutureTab> {
             children: <Widget>[
               foodShowCase(foodList.foods, FoodType.Pizza),
               foodShowCase(foodList.foods, FoodType.Rolls),
-              foodShowCase(foodList.foods, FoodType.Burgers),
-              foodShowCase(foodList.foods, FoodType.Sandwiches),
+              foodShowCase(foodList.foods, FoodType.Burger),
+              foodShowCase(foodList.foods, FoodType.Sandwich),
             ],
           ),
         ),
@@ -207,7 +207,7 @@ class _FutureTabState extends State<FutureTab> {
   Widget errorWidget(Object error) {
     return Center(
       child: Container(
-        margin: EdgeInsets.all(8),
+        margin: EdgeInsets.only(right: 50, left: 10),
         decoration: BoxDecoration(
           color: Colors.grey,
           borderRadius: BorderRadius.circular(4),
@@ -280,11 +280,10 @@ class ListOfFoods extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(right: 25),
+      padding: const EdgeInsets.only(right: 15, left: 10),
       child: GestureDetector(
         onTap: () {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => Details(foodObject)));
+          Navigator.push(context,_createRoute(foodObject));
         },
         child: Container(
           padding: EdgeInsets.symmetric(vertical: 35, horizontal: 20),
@@ -298,15 +297,18 @@ class ListOfFoods extends StatelessWidget {
             children: <Widget>[
               SizedBox(
                 height: 180,
-                child: CachedNetworkImage(
-                  imageUrl: image,
-                  fit: BoxFit.cover,
-                  placeholder: (context, url) => Center(
-                        child: CircularProgressIndicator(),
-                      ),
-                  errorWidget: (context, url, error) => Center(
-                        child: Icon(Icons.perm_scan_wifi, size: 48),
-                      ),
+                child: Hero(
+                  tag: image,
+                  child: CachedNetworkImage(
+                    imageUrl: image,
+                    fit: BoxFit.contain,
+                    placeholder: (context, url) => Center(
+                          child: CircularProgressIndicator(),
+                        ),
+                    errorWidget: (context, url, error) => Center(
+                          child: Icon(Icons.perm_scan_wifi, size: 48),
+                        ),
+                  ),
                 ),
               ),
               SizedBox(
@@ -320,7 +322,7 @@ class ListOfFoods extends StatelessWidget {
                   children: [
                     TextSpan(text: name),
                     TextSpan(
-                      text: "\ ${foodObject.foodType.toString()}",
+                      text: "\ ${foodObject.foodType.toString().substring(foodObject.foodType.toString().indexOf('.')+1)}",
                       style: TextStyle(fontWeight: FontWeight.w800),
                     ),
                   ],
@@ -351,6 +353,26 @@ class ListOfFoods extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+
+  Route _createRoute(Food food) {
+    return PageRouteBuilder(
+      transitionDuration: Duration(seconds: 1),
+      pageBuilder: (context, animation, secondaryAnimation) => Details(food),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        var begin = Offset(1.0, 0.0);
+        var end = Offset.zero;
+        var curve = Curves.easeInCirc;
+
+        var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+        
+
+        return SlideTransition(
+          position: animation.drive(tween),
+          child: child,
+        );
+      },
     );
   }
 }

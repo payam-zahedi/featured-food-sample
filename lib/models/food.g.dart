@@ -19,8 +19,8 @@ Map<String, dynamic> _$FoodListToJson(FoodList instance) =>
 Food _$FoodFromJson(Map<String, dynamic> json) {
   return Food(
       image: json['image'] as String,
-      background: json['background'],
-      foreground: json['foreground'],
+      background: json['background'] as int,
+      foreground: json['foreground'] as int,
       name: json['name'] as String,
       starRating: (json['starRating'] as num).toDouble(),
       desc: json['desc'] as String,
@@ -55,6 +55,6 @@ T _$enumDecode<T>(Map<T, dynamic> enumValues, dynamic source) {
 const _$FoodTypeEnumMap = <FoodType, dynamic>{
   FoodType.Pizza: 'Pizza',
   FoodType.Rolls: 'Rolls',
-  FoodType.Burgers: 'Burgers',
-  FoodType.Sandwiches: 'Sandwiches'
+  FoodType.Burger: 'Burger',
+  FoodType.Sandwich: 'Sandwich'
 };

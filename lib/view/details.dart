@@ -5,21 +5,21 @@ import 'dart:ui';
 import 'package:cached_network_image/cached_network_image.dart';
 
 class Details extends StatelessWidget {
-  Details(this.pizzaObject);
+  Details(this.foodObject);
 
-  final Food pizzaObject;
+  final Food foodObject;
 
   @override
   Widget build(BuildContext context) {
-    FlutterStatusbarcolor.setStatusBarColor(Color(pizzaObject.background));
+    FlutterStatusbarcolor.setStatusBarColor(Color(foodObject.background));
     return Scaffold(
       body: Center(
         child: ListView(
           children: <Widget>[
             Stack(
               children: <Widget>[
-                BackgroundArc(Color(pizzaObject.background)),
-                ForegroundContent(pizzaObject: pizzaObject)
+                BackgroundArc(Color(foodObject.background)),
+                ForegroundContent(foodObject: foodObject)
               ],
             )
           ],
@@ -30,9 +30,9 @@ class Details extends StatelessWidget {
 }
 
 class ForegroundContent extends StatelessWidget {
-  const ForegroundContent({this.pizzaObject});
+  const ForegroundContent({this.foodObject});
 
-  final Food pizzaObject;
+  final Food foodObject;
 
   @override
   Widget build(BuildContext context) {
@@ -55,23 +55,23 @@ class ForegroundContent extends StatelessWidget {
             ),
           ),
         ),
-        PizzaImage(pizzaObject.image),
+        FoodImage(foodObject.image),
         SizedBox(height: 20),
         Padding(
           padding: EdgeInsets.only(left: 85, right: 60),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              TitleText(pizzaObject.name),
+              TitleText(foodObject.name,foodObject.foodType),
               SizedBox(height: 25),
-              StarRating(pizzaObject.starRating,
-                  color: Color(pizzaObject.background)),
+              StarRating(foodObject.starRating,
+                  color: Color(foodObject.background)),
               SizedBox(height: 15),
-              Description(pizzaObject.desc),
+              Description(foodObject.desc),
               SizedBox(height: 15),
-              Price(pizzaObject.price),
+              Price(foodObject.price),
               SizedBox(height: 30),
-              BottomButtons(Color(pizzaObject.background)),
+              BottomButtons(Color(foodObject.background)),
               SizedBox(
                 height: 35,
               ),
@@ -83,25 +83,28 @@ class ForegroundContent extends StatelessWidget {
   }
 }
 
-class PizzaImage extends StatelessWidget {
-  final String pizzaImage;
+class FoodImage extends StatelessWidget {
+  final String foodImage;
 
-  PizzaImage(this.pizzaImage);
+  FoodImage(this.foodImage);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: 300,
       height: 300,
-      child: CachedNetworkImage(
-        imageUrl: pizzaImage,
-        fit: BoxFit.cover,
-        placeholder: (context, url) => Center(
-              child: CircularProgressIndicator(),
-            ),
-        errorWidget: (context, url, error) => Center(
-              child: Icon(Icons.perm_scan_wifi, size: 48),
-            ),
+      child: Hero(
+        tag: foodImage,
+        child: CachedNetworkImage(
+          imageUrl: foodImage,
+          fit: BoxFit.scaleDown,
+          placeholder: (context, url) => Center(
+                child: CircularProgressIndicator(),
+              ),
+          errorWidget: (context, url, error) => Center(
+                child: Icon(Icons.perm_scan_wifi, size: 48),
+              ),
+        ),
       ),
     );
   }
@@ -109,9 +112,10 @@ class PizzaImage extends StatelessWidget {
 
 class TitleText extends StatelessWidget {
   final String pizzaName;
+  final FoodType foodType;
   final double _fontSize = 40;
 
-  TitleText(this.pizzaName);
+  TitleText(this.pizzaName, this.foodType);
 
   @override
   Widget build(BuildContext context) {
@@ -126,7 +130,7 @@ class TitleText extends StatelessWidget {
               fontFamily: "slabo"),
         ),
         TextSpan(
-          text: " Pizza",
+          text: foodType.toString().substring(foodType.toString().indexOf('.')+1),
           style: TextStyle(
               color: Colors.black,
               fontSize: _fontSize,

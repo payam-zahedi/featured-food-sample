@@ -48,8 +48,8 @@ class Food {
 enum FoodType {
   Pizza,
   Rolls,
-  Burgers,
-  Sandwiches,
+  Burger,
+  Sandwich,
 }
 
 FoodList pizzaList = FoodList(foods: [

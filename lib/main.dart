@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'home.dart';
+import 'view/home.dart';
 
 void main() => runApp(MyApp());
 
@@ -9,7 +9,7 @@ class MyApp extends StatelessWidget {
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: "Food Future",
+      title: "Featured Food",
       home: FoodHome(),
       theme: ThemeData(primarySwatch: Colors.blueGrey, fontFamily: "slabo"),
     );
