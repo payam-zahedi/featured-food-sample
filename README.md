@@ -1,5 +1,5 @@
 
-# Flutter Pizza APP
+# Flutter Featured Food
 It's a simple app that I learned from Youtube, Modify it and added some Functionalities to it.
 
 ### Functionalities
@@ -13,10 +13,16 @@ The UI completely Created by @Ronak99 thanks to him. And I just changed some par
 
 
 ## Screenshots
-<img src="https://github.com/Ronak99/Flutter-UI-PizzaApp/blob/master/assets/ss/front.PNG" align="left" width="20%" >
 
-<img src="https://github.com/Ronak99/Flutter-UI-PizzaApp/blob/master/assets/ss/screen1.PNG" align="left" width="20%" >
 
-<img src="https://github.com/Ronak99/Flutter-UI-PizzaApp/blob/master/assets/ss/screen2.PNG" align="left" width="20%" >
+<img src="https://raw.githubusercontent.com/payam-zahedi/featured-food-sample/master/assets/ss/photo5868283588724764825.jpg" align="left" width="20%" >
 
-<img src="https://github.com/Ronak99/Flutter-UI-PizzaApp/blob/master/assets/ss/screen3.PNG" align="left" width="20%" >
+<img src="https://raw.githubusercontent.com/payam-zahedi/featured-food-sample/master/assets/ss/photo5868283588724764827.jpg" align="left" width="20%" >
+
+<img src="https://raw.githubusercontent.com/payam-zahedi/featured-food-sample/master/assets/ss/photo5868283588724764826.jpg" align="left" width="20%" >
+
+<img src="https://raw.githubusercontent.com/payam-zahedi/featured-food-sample/master/assets/ss/photo5868283588724764831.jpg" align="left" width="20%" >
+
+<img src="https://raw.githubusercontent.com/payam-zahedi/featured-food-sample/master/assets/ss/photo5868283588724764829.jpg" align="left" width="20%" >
+
+
