@@ -36,6 +36,7 @@ dev_dependencies:
 
   build_runner: ^1.0.0
   json_serializable: ^3.0.0
+  flutter_launcher_icons: ^0.7.2
 
 
 # For information on the generic Dart part of this file, see the
@@ -53,10 +54,18 @@ flutter:
     - assets/bag_icon.png
     - assets/home_icon.png
     - assets/search_icon.png
+    - assets/faveicon.png
 
   fonts:
     - family : slabo
       fonts:
         - asset: fonts/slabo.ttf
 
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/faveicon.png"
+  adaptive_icon_background: "#ffffff"
+  adaptive_icon_foreground: "assets/faveicon.png"
 
