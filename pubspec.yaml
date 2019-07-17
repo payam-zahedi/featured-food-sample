@@ -67,5 +67,5 @@ flutter_icons:
   ios: true
   image_path: "assets/faveicon.png"
   adaptive_icon_background: "#ffffff"
-  adaptive_icon_foreground: "assets/faveicon.png"
+  adaptive_icon_foreground: "assets/adaptive_faveicon.png"
 
